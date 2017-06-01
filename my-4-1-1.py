@@ -5,14 +5,14 @@
 # 实际案例
 # s = 'ab;cd|efg|hi,jkl|mn\topq;rst,uvw\txyz'
 # 其中<,><;><\><|>都是分隔符，如何处理
-strs = r"ab;cd|efg|hi,jkl|mn\topq;rst,uvw\txyz"
+strs = "ab;cd|efg|hi,jkl|mn\topq;rst,uvw\txyz"
 
-str1 = "hsjhd hjjh jlkj wii asa dasa s "
-list1 =  str1.split()
-print list1
+def mySplit(s,ds):
+    res = [s]
+    for d in ds:
+        t=[]
+        map(lambda x : t.extend(x.split(d)) ,res)
+        res = t
+    return [y for y in res if y ]
 
-res = strs.split(";")
-print map(lambda x:x.split("|"),res)
-t = []
-print map(lambda x:t.extend(x.split(",")),res)
-print t
+print mySplit(strs,',:;\t|')
